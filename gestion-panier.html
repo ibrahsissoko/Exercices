@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			*{margin:0;padding:0;}
+			
+		</style>
+	</head>
+	<body>
+		<div id="bloc1">
+			Mon bloc 1
+			<input type="button" value="Ajouter au panier" onclick="javascript:addToCart('bloc1');" />
+		</div>
+		<div id="bloc2">
+			Mon bloc 2
+			<input type="button" value="Ajouter au panier" onclick="javascript:addToCart('bloc2');" />
+		</div>
+		<div id="bloc3">
+			Mon bloc 3
+			<input type="button" value="Ajouter au panier" onclick="javascript:addToCart('bloc3');" />
+		</div>
+		<div id="bloc4">
+			Mon bloc 4
+			<input type="button" value="Ajouter au panier" onclick="javascript:addToCart('bloc4');" />
+		</div>
+		<div id="cart">
+			Mon panier est vide.
+		</div>
+		
+		
+		<input type="button" value="Edit CSS" onclick="javascript:editCss('bloc1',['color'],['green']);" />
+		<input type="button" value="Reset" onclick="javascript:resetCss('bloc1');" />
+		
+		<script type="text/javascript">
+		
+			var productInCart = 0;
+			
+			function addToCart(id){
+				//tester si panier est vide
+				//oui je retire le texte "mon panier est vide."
+				if(productInCart == 0){
+					document.getElementById("cart").innerHTML = "";
+				}
+				
+				//tester si le produit est déjà dans le panier
+				if(document.getElementById("cart-"+id)){
+                    //oui je modifie la quantité
+                    var qty = parseInt(document.getElementById("cart-"+id+"-qty").value);
+                    document.getElementById("cart-"+id+"-qty").setAttribute("value",qty+1);
+				} else{
+				    //non je le crée dans le panier
+					var product = document.createElement('div');
+					product.setAttribute('id','cart-'+id);
+
+                    //créer un element ou va écrire la quantité
+                    var qty = document.createElement('input');
+                    qty.setAttribute('type','text');
+                    qty.setAttribute('value','1');
+                    qty.setAttribute('id','cart-'+id+'-qty');
+                    var qtyText = document.createElement('span');
+                    qtyText.innerHTML = "Quantit&eacute; : ";
+
+                    //insertion du html
+                    document.getElementById("cart").appendChild(product);
+					product.innerHTML =
+						document.getElementById(id).innerHTML;
+                    product.appendChild(qtyText);
+                    product.appendChild(qty);
+					document.getElementById("cart-"+id).childNodes[1].value = "Supprimer";
+					document.getElementById("cart-"+id).childNodes[1]
+						.setAttribute("onclick","javascript:deleteFromCart(\'cart-"+id+"\');");
+                }
+				productInCart++;
+			}
+			
+			function deleteFromCart(id){
+                //tester la quantité du produit
+                var qty = parseInt(document.getElementById(id+"-qty").value);
+                if(qty > 1){
+                    // > 1 je modifie la quantité
+                    document.getElementById(id+"-qty").setAttribute("value",qty-1);
+                } else {
+                    // = 0 je supprime le produit
+                    document.getElementById(id).remove();
+                }
+                productInCart--;
+				//tester si panier est vide
+                if(productInCart == 0){
+                    //oui j'ajoute le texte "mon panier est vide."
+                    document.getElementById("cart").innerHTML = "Mon panier est vide.";
+                }
+
+
+			}
+			
+			function resetCss(id){
+				document.getElementById(id).removeAttribute("style"); 
+			}
+			
+			function editCss(id, prop, value){
+				for(var i=0; i < prop.length; i++){
+					document.getElementById(id).style[prop[i]] = value[i];
+				}
+			}
+			
+			editCss("bloc1",["color","background"],["white","red"]);
+			editCss("bloc2",["color","background"],["blue","yellow"]);
+			editCss("bloc3",["color","background"],["white","green"]);
+			editCss("bloc4",["color","background"],["white","blue"]);
+		
+			
+			//document.getElementById("bloc1").innerHTML = "Ceci est le bloc 1 !";
+		</script>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
