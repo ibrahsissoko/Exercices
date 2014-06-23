@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html ng-app="googleEcom">
+<head>
+    <title>Google e-commerce</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="img/logo.jpg" />
+        <nav>
+            <ul id="main-nav" ng-controller="mainNav">
+                <li ng-repeat="li in nav" ng-class="activeNav(li.mainLink.href)">
+                    <a href="{{li.mainLink.href}}">{{li.mainLink.title}}</a>
+                    <ul ng-if='li.underNav.length > 0'>
+                        <li ng-repeat="underLi in li.underNav">
+                            <a href="{{underLi.href}}">{{underLi.title}}</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <section ng-controller="loginCtrl">
+                <form ng-hide="userLogged" id="login" ng-submit="login()">
+                    <input type="text" placeholder="Email" ng-model="user.email" />
+                    <input type="password" placeholder="Password" ng-model="user.pwd" />
+                    <button type="submit">Sign in</button>
+                </form>
+                <p ng-show="userLogged">Bonjour {{user.name}} {{user.firstname}}</p>
+                <p ng-show="user.error.length > 0">Erreur : {{user.error}}</p>
+            </section>
+        </nav>
+        <div id="minCart">
+            <a href="cart.html">Voir mon panier</a>
+        </div>
+    </header>
+    <section id="productList">
+        <article data-id="1">
+            <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcTwFiIVN-K_ILJgoJFB8fN-3LI6JYFn5rSrwYoU_NhQjHl-FMIhDvqOeiLDXQ" alt="" />
+            <p>Iphone 5s</p>
+            <p>Apple</p>
+            <p>description</p>
+            <p>500€00</p>
+
+            <select class="select-color">
+                <optgroup label="Couleurs">
+                    <option value="Noir">Noir</option>
+                    <option value="Blanc">Blanc</option>
+                    <option value="Bleu">Bleu</option>
+                    <option value="Rouge">Rouge</option>
+                </optgroup>
+            </select>
+            <select class="select-memory">
+                <optgroup label="Mémoire">
+                    <option value="16Go">16Go</option>
+                    <option value="32Go">32Go</option>
+                    <option value="64Go">64Go</option>
+                </optgroup>
+            </select>
+            <a href="#" class="addToCart">Ajouter au panier</a>
+
+        </article>
+        <article data-id="2">
+            <img src="https://boutique.orange.fr/media-cms/mediatheque/636x900-apple-iphone-4-blanc-9359.jpg" alt="" />
+            <p>Iphone 4</p>
+            <p>Apple</p>
+            <p>description</p>
+            <p>500€00</p>
+            <select class="select-color">
+                <optgroup label="Couleurs">
+                    <option value="Noir">Noir</option>
+                    <option value="Blanc">Blanc</option>
+                </optgroup>
+            </select>
+            <select class="select-memory">
+                <optgroup label="Mémoire">
+                    <option value="8Go">8Go</option>
+                    <option value="16Go">16Go</option>
+                    <option value="32Go">32Go</option>
+                </optgroup>
+            </select>
+            <a href="#" class="addToCart">Ajouter au panier</a>
+
+        </article>
+        <article data-id="3">
+            <img src="https://boutique.orange.fr/media-cms/mediatheque/636x900-apple-iphone-4-blanc-9359.jpg" alt="" />
+            <p>Iphone 4</p>
+            <p>Apple</p>
+            <p>description</p>
+            <p>500€00</p>
+            <select class="select-color">
+                <optgroup label="Couleurs">
+                    <option value="Noir">Noir</option>
+                    <option value="Blanc">Blanc</option>
+                    <option value="Bleu">Bleu</option>
+                    <option value="Rouge">Rouge</option>
+                </optgroup>
+            </select>
+            <select class="select-memory">
+                <optgroup label="Mémoire">
+                    <option value="16Go">16Go</option>
+                    <option value="32Go">32Go</option>
+                    <option value="64Go">64Go</option>
+                </optgroup>
+            </select>
+            <a href="#" class="addToCart">Ajouter au panier</a>
+
+        </article>
+        <article data-id="4">
+            <img src="https://boutique.orange.fr/media-cms/mediatheque/636x900-apple-iphone-4-blanc-9359.jpg" alt="" />
+            <p>Iphone 4</p>
+            <p>Apple</p>
+            <p>description</p>
+            <p>500€00</p>
+            <select class="select-color">
+                <optgroup label="Couleurs">
+                    <option value="Noir">Noir</option>
+                    <option value="Blanc">Blanc</option>
+                    <option value="Bleu">Bleu</option>
+                    <option value="Rouge">Rouge</option>
+                </optgroup>
+            </select>
+            <select class="select-memory">
+                <optgroup label="Mémoire">
+                    <option value="16Go">16Go</option>
+                    <option value="32Go">32Go</option>
+                    <option value="64Go">64Go</option>
+                </optgroup>
+            </select>
+            <a href="#" class="addToCart">Ajouter au panier</a>
+
+        </article>
+        <article data-id="5">
+            <img src="https://boutique.orange.fr/media-cms/mediatheque/636x900-apple-iphone-4-blanc-9359.jpg" alt="" />
+            <p>Iphone 4</p>
+            <p>Apple</p>
+            <p>description</p>
+            <p>500€00</p>
+            <select class="select-color">
+                <optgroup label="Couleurs">
+                    <option value="Noir">Noir</option>
+                    <option value="Blanc">Blanc</option>
+                    <option value="Bleu">Bleu</option>
+                    <option value="Rouge">Rouge</option>
+                </optgroup>
+            </select>
+            <select class="select-memory">
+                <optgroup label="Mémoire">
+                    <option value="16Go">16Go</option>
+                    <option value="32Go">32Go</option>
+                    <option value="64Go">64Go</option>
+                </optgroup>
+            </select>
+            <a href="#" class="addToCart">Ajouter au panier</a>
+
+        </article>
+        <article data-id="6">
+            <img src="https://boutique.orange.fr/media-cms/mediatheque/636x900-apple-iphone-4-blanc-9359.jpg" alt="" />
+            <p>Iphone 4</p>
+            <p>Apple</p>
+            <p>description</p>
+            <p>500€00</p>
+            <select class="select-color">
+                <optgroup label="Couleurs">
+                    <option value="Noir">Noir</option>
+                    <option value="Blanc">Blanc</option>
+                    <option value="Bleu">Bleu</option>
+                    <option value="Rouge">Rouge</option>
+                </optgroup>
+            </select>
+            <select class="select-memory">
+                <optgroup label="Mémoire">
+                    <option value="16Go">16Go</option>
+                    <option value="32Go">32Go</option>
+                    <option value="64Go">64Go</option>
+                </optgroup>
+            </select>
+            <a href="#" class="addToCart">Ajouter au panier</a>
+
+        </article>
+    </section>
+    <footer>
+        &copy; efficom 2014
+    </footer>
+    <script id="template" type="text/html">
+        <article>
+            <img src="{{image}}" />
+            <p>{{name}}</p>
+            <p>{{price}}</p>
+            <a href="#" data-id="{{id}}" class="deleteArticle">supprimer</a>
+        </article>
+    </script>
+    <script src="angular.1.0.2.min.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="functions.js"></script>
+</body>
+</html>
