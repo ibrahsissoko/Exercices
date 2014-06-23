@@ -1,0 +1,87 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+h1{text-align:center;font:30px Helvetica, arial;margin:30px 0;}
+footer{text-align:center;}
+#main{position:relative;width:500px;height:500px;margin:50px auto;}
+.grid,.tile-container{background:#ccc;border:3px solid #666;width:500px;height:500px;}
+.grid .cell{float:left;width:25%;height:25%;border:3px solid #666;box-sizing:border-box;}
+
+.tile-container{position:absolute;top:0;left:0;background:none;border-color:transparent;}
+.tile{position:absolute;width:25%;height:25%;border:3px solid #666;box-sizing:border-box;background:#eee;transition: transform 100ms ease-in-out 0s;text-align:center;font-size:30px;font-weight:bold;}
+.tile > span{display:table;vertical-align:middle;height:100%;width:100%;text-align:center;}
+.tile > span > span{display:table-cell;vertical-align:middle;height:100%;width:100%;text-align:center;}
+.tile-2{background-color:#FFFF00;}
+.tile-4{background-color:#FFE500;}
+.tile-8{background-color:#FED501;}
+.tile-16{background-color:#FFAD01;}
+.tile-32{background-color:#FE6B01;}
+.tile-64{background-color:#FF5C01;}
+.tile-128{background-color:#FF4400;}
+.tile-256{background-color:#E00000;color:#fff;}
+.tile-512{background-color:#CC0001;color:#fff;}
+.tile-1024{background-color:#C10100;color:#fff;}
+.tile-2048{background-color:#A30001;color:#fff;}
+
+.tile-1-1{transform: translate(0, 0);}
+.tile-1-2{transform: translate(0, 100%);}
+.tile-1-3{transform: translate(0, 200%);}
+.tile-1-4{transform: translate(0, 300%);}
+.tile-2-1{transform: translate(100%, 0);}
+.tile-2-2{transform: translate(100%, 100%);}
+.tile-2-3{transform: translate(100%, 200%);}
+.tile-2-4{transform: translate(100%, 300%);}
+.tile-3-1{transform: translate(200%, 0);}
+.tile-3-2{transform: translate(200%, 100%);}
+.tile-3-3{transform: translate(200%, 200%);}
+.tile-3-4{transform: translate(200%, 300%);}
+.tile-4-1{transform: translate(300%, 0);}
+.tile-4-2{transform: translate(300%, 100%);}
+.tile-4-3{transform: translate(300%, 200%);}
+.tile-4-4{transform: translate(300%, 300%);}
